@@ -92,7 +92,7 @@
               <div class="field-group">
                 <label for="department">Department:</label>
                 <select id="department" name="department" required>
-                  <option value="">-- Select Department --</option>
+                  <option value="">Select Department</option>
                   <option value="IT">IT</option>
                   <option value="HR">HR</option>
                   <option value="Finance">Finance</option>
@@ -127,9 +127,9 @@
 
             <div class="field-row">
               <div class="field-group">
-                <label for="incident-type">Incident Type <span class="req">*</span></label>
+                <label for="incident-type">Incident Type</label>
                 <select id="incident-type" name="incident-type" required>
-                  <option value="">-- Select Type --</option>
+                  <option value="">Select Type</option>
                   <option value="Phishing">Phishing</option>
                   <option value="Malware">Malware</option>
                   <option value="Unauthorized Access">Unauthorized Access</option>
@@ -143,7 +143,7 @@
               </div>
 
               <div class="field-group">
-                <label for="incident-datetime">Date &amp; Time <span class="req">*</span></label>
+                <label for="incident-datetime">Select Date and Time:</label>
                 <input
                   type="datetime-local"
                   id="incident-datetime"
@@ -156,7 +156,7 @@
 
             <!-- Severity Radio Group -->
             <div class="field-group">
-              <label class="group-label">Severity Level <span class="req">*</span></label>
+              <label class="group-label">Severity Level:</label>
               <div class="severity-group" id="severity-group">
                 <label class="severity-option severity-low">
                   <input type="radio" name="severity" value="Low" required />
@@ -180,8 +180,7 @@
 
             <!-- field to describe the type of incident, I will setup to have at least 20 characterssection 2 -->
             <div class="field-group">
-              <label for="description">
-                Incident Description <span class="req">*</span>
+              <label for="description">Incident Description:
                 <span class="char-counter" id="char-counter">0 / 20 min</span>
               </label>
               <textarea
@@ -198,8 +197,8 @@
 
           <!-- adding buttons to submit or clear the request -->
           <div class="form-actions">
-            <button type="reset" class="btn-secondary" id="reset-btn">Clear Form</button>
             <button type="submit" class="btn-primary" id="submit-btn">Submit Report</button>
+            <button type="reset" class="btn-secondary" id="reset-btn">Clear Form</button>
           </div>
 </body>
 </html>

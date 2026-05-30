@@ -50,7 +50,7 @@ body {
   font-weight: bold;
 }
 
-/* ── PANEL TITLE BAR ── */
+/* title bar */
 
 .panel-title {
   background-color: black;
@@ -280,32 +280,69 @@ textarea {
   border: 2px solid #cccccc;
   font-size: 13px;
   font-weight: bold;
-  color: #555555;
-  background-color: #f0f0f0;
+  color: black;
+  background-color: black
   cursor: pointer;
 }
 
-/* assign colors for the severity level */
+/* assign different colors and actions to the severity level buttons */
 .severity-option input:checked + .severity-badge {
-  color: white;
+  color: black;
 }
 
 .severity-low input:checked + .severity-badge {
-  background-color: #00aa55;
-  border-color: #00aa55;
+  background-color: green;
+
 }
 
 .severity-medium input:checked + .severity-badge {
-  background-color: #e6a800;
-  border-color: #e6a800;
+  background-color: yellow;
 }
 
 .severity-high input:checked + .severity-badge {
-  background-color: #e65c00;
-  border-color: #e65c00;
+  background-color: darkorange;
 }
 
 .severity-critical input:checked + .severity-badge {
-  background-color: #cc0000;
-  border-color: #cc0000;
+  background-color: red;
+}
+
+/* assign actions for the submit and clear form buttons */
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background-color: lightblue;
+  color: white;
+  border: 1px solid back;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: blue;
+}
+
+.btn-primary:disabled {
+  background-color: gray;
+}
+
+.btn-secondary {
+  background-color: darkgrey;
+  color: grey;
+  border: 1px solid back;
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: whitesmoke;
 }
