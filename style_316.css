@@ -250,11 +250,11 @@ textarea {
 
 .char-counter {
   font-size: 12px;
-  color: #888888;
+  color: red;
 }
 
 .char-counter.met {
-  color: #00aa55;
+  color: green;
 }
 
 /* Create and assign colors to the severity level */

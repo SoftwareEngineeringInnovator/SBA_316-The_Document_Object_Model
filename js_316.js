@@ -27,6 +27,8 @@ const severityBadges = document.querySelectorAll(".severity-badge");
 // Tested everyone of the above varialbles
 // console.log(severityBadges);
 
+// event listener for the Incident Description field
+// descriptionField.addEventListener("input", cCharacterCounter);
 
 // Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5% 
 // Iterate over a collection of elements to accomplish some task. 10% 
@@ -35,12 +37,45 @@ const severityBadges = document.querySelectorAll(".severity-badge");
 // Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. 2% 
 // Modify the HTML or text content of at least one element in response to user interaction using innerHTML, innerText, or textContent. 10% 
 // Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties. 5% 
-// Modify at least one attribute of an element in response to user interaction. 3% 
-// Register at least two different event listeners and create the associated event handler functions. 10% 
-// Use at least two Browser Object Model (BOM) properties or methods. 3% Include at least one form and/or input with HTML attribute validation. 5% 
-// Include at least one form and/or input with DOM event-based validation. (This can be the same form or input as the one above, but should include event-based validation in addition to the HTML attribute validation.) 5% 
-// Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). 10% 
-// Commit frequently to the git repository. 5% 
-// Include a README file that contains a description of your application. 2% 
+// Modify at least one attribute of an element in response to user interaction. 3%
+
+// Register at least two different event listeners and create the associated event handler functions. 10%
+// event listener for the Incident Description field
+descriptionField.addEventListener("input", incidentCharacterCounter);
+
+function incidentCharacterCounter() {
+
+    // store the information from the Incident Description field
+    const currentText = descriptionField.value;
+
+    // Count how many characters exist
+    const currentLength = currentText.length;
+
+    // Update the counter display
+    characterCounter.textContent = `${currentLength} / 20 min`;
+
+    // Check if minimum requirement has been met
+    if (currentLength >= 20) {
+
+        // Add the CSS class
+        characterCounter.classList.add("met");
+
+    } else {
+
+        // Remove the CSS class
+        characterCounter.classList.remove("met");
+
+    }
+
+    // Tested everyone of the above varialbles
+    // console.log(currentLength);
+
+}
+
+// Use at least two Browser Object Model (BOM) properties or methods. 3% Include at least one form and/or input with HTML attribute validation. 5%
+// Include at least one form and/or input with DOM event-based validation. (This can be the same form or input as the one above, but should include event-based validation in addition to the HTML attribute validation.) 5%
+// Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). 10%
+// Commit frequently to the git repository. 5%
+// Include a README file that contains a description of your application. 2%
 // Level of effort displayed in creativity, presentation, and user experience. 5%
 
