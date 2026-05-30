@@ -6,12 +6,7 @@
     <link rel="stylesheet" href="./style_316.css" />
   <script src="./js_316.js" defer></script>
     <title>SBA_316-The_Document_Object_Model</title>
-<!-- I will use the google graphics from HTML -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
+
 </head>
 <body>
   <header class="site">
@@ -37,7 +32,7 @@
           <h2>New Incident Report</h2>
         </div>
 
-        <form id="incident-form" novalidate></form>
+        <form id="incident-form" novalidate>
 
                   <!-- ── SECTION 1: Reporter Info ── -->
           <fieldset class="form-section">
@@ -200,5 +195,60 @@
             <button type="submit" class="btn-primary" id="submit-btn">Submit Report</button>
             <button type="reset" class="btn-secondary" id="reset-btn">Clear Form</button>
           </div>
-</body>
+
+     <!-- Add a general warning to verify fields, accmplish this by using JS -->
+
+        </form>
+      </section>
+
+ <!-- ─── RIGHT: INCIDENT LOG ─── -->
+      <section class="log-panel">
+        <div class="panel-title">
+          <span class="panel-tag">LIVE</span>
+          <h2>Incident Log</h2>
+          <span class="incident-count" id="incident-count">0 reports</span>
+        </div>
+
+        <div class="log-filters">
+          <button class="filter-btn active" data-filter="All">All</button>
+          <button class="filter-btn" data-filter="Low">Low</button>
+          <button class="filter-btn" data-filter="Medium">Medium</button>
+          <button class="filter-btn" data-filter="High">High</button>
+          <button class="filter-btn" data-filter="Critical">Critical</button>
+          <button class="btn-clear-log" id="clear-log-btn">Clear Log</button>
+        </div>
+
+        <!-- Incident cards go here dynamically -->
+        <div class="log-feed" id="log-feed">
+          <div class="empty-state" id="empty-state">
+            <span class="empty-icon">📋</span>
+            <p>No incidents reported yet.<br />Submit a report to see it here.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════
+         CARD TEMPLATE (hidden — cloned by JS)
+    ═══════════════════════════════════════════ -->
+    <template id="incident-card-template">
+      <article class="incident-card">
+        <div class="card-header">
+          <span class="card-severity-badge"></span>
+          <span class="card-type"></span>
+          <button class="card-dismiss" title="Dismiss">✕</button>
+        </div>
+        <div class="card-body">
+          <p class="card-description"></p>
+        </div>
+        <div class="card-footer">
+          <span class="card-reporter"></span>
+          <span class="card-timestamp"></span>
+        </div>
+      </article>
+    </template>
+
+    
+  </body>
 </html>

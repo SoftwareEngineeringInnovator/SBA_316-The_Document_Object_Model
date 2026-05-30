@@ -1,7 +1,7 @@
 /* Body page setup */
 body {
     background-color: lightskyblue;
-    font-family: Ariel, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     color: black;
     margin: 0;
@@ -102,7 +102,7 @@ body {
 }
 
 /* Page layout */
-.main-layout {
+.page-layout {
   display: flex;
   gap: 24px;
   padding: 24px;
@@ -277,12 +277,11 @@ textarea {
   display: inline-block;
   padding: 6px 14px;
   border-radius: 4px;
-  border: 2px solid #cccccc;
+  border: 3px solid silver;
   font-size: 13px;
   font-weight: bold;
   color: black;
-  background-color: black
-  cursor: pointer;
+  background-color: whitesmoke;
 }
 
 /* assign different colors and actions to the severity level buttons */
