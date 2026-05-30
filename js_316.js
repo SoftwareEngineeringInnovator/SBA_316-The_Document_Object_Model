@@ -30,6 +30,25 @@ const severityBadges = document.querySelectorAll(".severity-badge");
 // event listener for the Incident Description field
 // descriptionField.addEventListener("input", cCharacterCounter);
 
+// Reporter Name field
+const employeeNameField = document.getElementById("employee-name");
+
+// console.log(employeeNameField);
+
+// Error message for if the name field is empty or if there are less than two charaters
+const employeeNameError = document.getElementById("error-employee-name");
+
+// Employee ID field
+const employeeIdField = document.getElementById("employee-id");
+
+// console.log(employeeIdField);
+
+// Error for the ID field if doe not follow the setup paratmeters format - Format: EMP-1234
+const employeeIdError = document.getElementById("error-employee-id");
+
+// Error for the description of Incident Description field if there are less than 20 characters or empty
+const descriptionError = document.getElementById("error-description");
+
 // Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5% 
 // Iterate over a collection of elements to accomplish some task. 10% 
 // Create at least one element using createElement. 5% 
@@ -40,9 +59,21 @@ const severityBadges = document.querySelectorAll(".severity-badge");
 // Modify at least one attribute of an element in response to user interaction. 3%
 
 // Register at least two different event listeners and create the associated event handler functions. 10%
+
 // event listener for the Incident Description field
 descriptionField.addEventListener("input", incidentCharacterCounter);
 
+// event listener for the employee name
+employeeNameField.addEventListener(
+    "input", validateEmployeeName
+);
+
+// event listener for the employee ID field
+employeeIdField.addEventListener(
+    "input", validateEmployeeId
+);
+
+// Function that validates the characters in the incident field
 function incidentCharacterCounter() {
 
     // store the information from the Incident Description field
@@ -56,21 +87,73 @@ function incidentCharacterCounter() {
 
     // Check if minimum requirement has been met
     if (currentLength >= 20) {
-
         // Add the CSS class
         characterCounter.classList.add("met");
-
     } else {
-
         // Remove the CSS class
         characterCounter.classList.remove("met");
-
     }
 
     // Tested everyone of the above varialbles
     // console.log(currentLength);
 
 }
+
+// Function that validates the employee name
+
+function validateEmployeeName() {
+
+    // Remove empty spaces
+    const employeeName = employeeNameField.value.trim();
+
+    // condition verify if the employee name field is empty
+    if (employeeName === "") {
+        employeeNameError.textContent = "Employee name is required.";
+    }
+
+    // Check if the employee name field has more than two characters
+    else if (employeeName.length < 2) {
+        employeeNameError.textContent = "Employee name must be at least 2 characters.";
+    }
+
+    // Passed validation
+    else {
+        employeeNameError.textContent = "";
+    }
+
+    // Tested everyone of the above varialbles
+    // console.log(employeeName);
+}
+
+// Function that validates the employee ID and format
+
+function validateEmployeeId() {
+
+    // This method will remove the whitespaces
+    const employeeId = employeeIdField.value.trim();
+
+    // Must start with EMP- following by 4 digits
+    const employeeIdPattern = /^EMP-\d{4}$/;
+
+    if (employeeId === "") {
+        employeeIdError.textContent = "Employee ID is required.";
+    }
+
+    else if (!employeeIdPattern.test(employeeId))
+         {
+        // Must start with EMP- following by 4 digits
+        employeeIdError.textContent = "Use format EMP-1234.";
+    }
+
+    else {
+        employeeIdError.textContent = "";
+    }
+
+    // Tested everyone of the above varialbles
+    // console.log(employeeId);
+}
+
+
 
 // Use at least two Browser Object Model (BOM) properties or methods. 3% Include at least one form and/or input with HTML attribute validation. 5%
 // Include at least one form and/or input with DOM event-based validation. (This can be the same form or input as the one above, but should include event-based validation in addition to the HTML attribute validation.) 5%

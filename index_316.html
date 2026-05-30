@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="./style_316.css" />
   <script src="./js_316.js" defer></script>
     <title>SBA_316-The_Document_Object_Model</title>
-
 </head>
 <body>
   <header class="site">
@@ -32,7 +31,7 @@
           <h2>New Incident Report</h2>
         </div>
 
-        <form id="incident-form" novalidate>
+        <form id="incident-form" novalidate></form>
 
                   <!-- ── SECTION 1: Reporter Info ── -->
           <fieldset class="form-section">
@@ -42,16 +41,16 @@
             <!-- Employee name -->
             <div class="field-row">
               <div class="field-group">
-                <label for="reporter-name">Full Name:</label>
+                <label for="employee-name">Full Name:</label>
                 <input
                   type="text"
-                  id="reporter-name"
-                  name="reporter-name"
+                  id="employee-name"
+                  name="employee-name"
                   placeholder="Employee Name"
                   required
                   minlength="2"
                 />
-                <span class="error-msg" id="error-reporter-name"></span>
+                <span class="error-msg" id="error-employee-name"></span>
               </div>
             <!-- Employee tittle -->
               <div class="field-group">
