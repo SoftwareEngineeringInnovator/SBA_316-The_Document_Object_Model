@@ -39,7 +39,7 @@ body {
 
 .header-meta {
   font-size: 13px;
-  color: #aaaaaa;
+  color: gray;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -48,6 +48,43 @@ body {
 .clock {
   color: #00bcd4;
   font-weight: bold;
+}
+
+/* ── PANEL TITLE BAR ── */
+
+.panel-title {
+  background-color: black;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 6px 6px 0 0;
+}
+
+.panel-title h2 {
+  font-size: 15px;
+  margin: 0;
+  flex: 1;
+  letter-spacing: 1px;
+}
+
+.panel-tag {
+  background-color: lightblue;
+  color: black;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+/* Form information */
+#incident-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* This provide a live animation to the page's clock */
@@ -74,10 +111,201 @@ body {
   align-items: flex-start;
 }
 
-/* ── PANELS Form */
+/* forms section */
 .form-panel {
   background-color: white;
-  border: 1px solid #cccccc;
+  border: 2px solid white;
   border-radius: 6px;
   flex: 1;
+}
+
+/* sections */
+.form-section {
+  border: 5px solid black;
+  border-radius: 6px;
+  padding: 16px;
+  background-color: whitesmoke;
+}
+
+.form-section legend {
+  font-size: 14px;
+  font-weight: bold;
+  color: darkolivegreen;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+.section-number {
+  background-color: lightblue;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+/* Reporter information fields */
+.field-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.field-group {
+  flex: 2;
+}
+/* label reporter information*/
+
+label {
+  font-size: 13px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 8px 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+}
+
+input[type="email"] {
+  padding: 8px 10px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+}
+
+.field-hint {
+  font-size: 12px;
+  color: #888888;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: #cc0000;
+  min-height: 16px;
+}
+
+select {
+  padding: 8px 10px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  color: #222222;
+  box-sizing: border-box;
+}
+
+/* Incident details section */
+input[type="datetime-local"] {
+  padding: 8px 10px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  color: #222222;
+  box-sizing: border-box;
+}
+
+textarea {
+  padding: 8px 10px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  background-color: white;
+  color: #222222;
+  box-sizing: border-box;
+}
+
+.group-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #444444;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.char-counter {
+  font-size: 12px;
+  color: #888888;
+}
+
+.char-counter.met {
+  color: #00aa55;
+}
+
+/* Create and assign colors to the severity level */
+
+.severity-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.severity-option {
+  cursor: pointer;
+}
+
+.severity-option input[type="radio"] {
+  display: none;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 2px solid #cccccc;
+  font-size: 13px;
+  font-weight: bold;
+  color: #555555;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* assign colors for the severity level */
+.severity-option input:checked + .severity-badge {
+  color: white;
+}
+
+.severity-low input:checked + .severity-badge {
+  background-color: #00aa55;
+  border-color: #00aa55;
+}
+
+.severity-medium input:checked + .severity-badge {
+  background-color: #e6a800;
+  border-color: #e6a800;
+}
+
+.severity-high input:checked + .severity-badge {
+  background-color: #e65c00;
+  border-color: #e65c00;
+}
+
+.severity-critical input:checked + .severity-badge {
+  background-color: #cc0000;
+  border-color: #cc0000;
 }
