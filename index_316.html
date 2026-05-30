@@ -14,11 +14,11 @@
     />
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
+  <header class="site">
+    <div class="header">
       <div class="logo">
-        <span class="logo-icon">⬡</span>
-        <span class="logo-text">CYBER<strong>SHIELD</strong></span>
+        <span class="icon">⬡</span>
+        <span class="text-logo">CYBER<strong>SHIELD</strong></span>
       </div>
       <div class="header-meta">
 
@@ -26,6 +26,98 @@
       </div>
     </div>
   </header>
+
+  <!-- Page Layout -->
+    <main class="page-layout">
+
+      <!-- Left column -->
+      <section class="form-panel">
+        <div class="panel-title">
+          <span class="panel-tag">SUBMIT</span>
+          <h2>New Incident Report</h2>
+        </div>
+
+        <form id="incident-form" novalidate></form>
+
+                  <!-- ── SECTION 1: Reporter Info ── -->
+          <fieldset class="form-section">
+            <legend>
+              <span class="section-number">01</span> Reporter Information
+            </legend>
+            <!-- Employee name -->
+            <div class="field-row">
+              <div class="field-group">
+                <label for="reporter-name">Full Name: <span class="req"></span></label>
+                <input
+                  type="text"
+                  id="reporter-name"
+                  name="reporter-name"
+                  placeholder="Employee Name"
+                  required
+                  minlength="2"
+                />
+                <span class="error-msg" id="error-reporter-name"></span>
+              </div>
+            <!-- Employee tittle -->
+              <div class="field-group">
+                <label for="reporter-title">Job Title: <span class="req"></span></label>
+                <input
+                  type="text"
+                  id="reporter-title"
+                  name="reporter-title"
+                  placeholder="Position"
+                  required
+                />
+                <span class="error-msg" id="error-reporter-title"></span>
+              </div>
+            </div>
+            <!-- Employee ID -->
+            <div class="field-row">
+              <div class="field-group">
+                <label for="employee-id">Employee ID: <span class="req"></span></label>
+                <input
+                  type="text"
+                  id="employee-id"
+                  name="employee-id"
+                  placeholder="Employee ID"
+                  required
+                  pattern="EMP-\d{4}"
+                  title="Format: EMP-followed by 4 digits (e.g. EMP-1234)"
+                />
+            <!-- ID Format -->                
+                <span class="field-hint">Format: EMP-1234</span>
+                <span class="error-msg" id="error-employee-id"></span>
+              </div>
+            <!-- Department Selection -->
+              <div class="field-group">
+                <label for="department">Department: <span class="req"></span></label>
+                <select id="department" name="department" required>
+                  <option value="">-- Select Department --</option>
+                  <option value="IT">IT</option>
+                  <option value="HR">HR</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Operations">Operations</option>
+                  <option value="Legal">Legal</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="error-msg" id="error-department"></span>
+              </div>
+            </div>
+            <!-- Employee email address -->
+            <div class="field-row">
+              <div class="field-group full-width">
+                <label for="reporter-email">Email Address: <span class="req"></span></label>
+                <input
+                  type="email"
+                  id="reporter-email"
+                  name="reporter-email"
+                  placeholder="employee.name@company.com"
+                  required
+                />
+                <span class="error-msg" id="error-reporter-email"></span>
+              </div>
+            </div>
+          </fieldset>
     
 </body>
 </html>
