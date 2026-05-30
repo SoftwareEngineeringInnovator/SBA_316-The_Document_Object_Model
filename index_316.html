@@ -47,7 +47,7 @@
             <!-- Employee name -->
             <div class="field-row">
               <div class="field-group">
-                <label for="reporter-name">Full Name: <span class="req"></span></label>
+                <label for="reporter-name">Full Name:</label>
                 <input
                   type="text"
                   id="reporter-name"
@@ -60,7 +60,7 @@
               </div>
             <!-- Employee tittle -->
               <div class="field-group">
-                <label for="reporter-title">Job Title: <span class="req"></span></label>
+                <label for="reporter-title">Job Title:</label>
                 <input
                   type="text"
                   id="reporter-title"
@@ -74,7 +74,7 @@
             <!-- Employee ID -->
             <div class="field-row">
               <div class="field-group">
-                <label for="employee-id">Employee ID: <span class="req"></span></label>
+                <label for="employee-id">Employee ID:</label>
                 <input
                   type="text"
                   id="employee-id"
@@ -90,7 +90,7 @@
               </div>
             <!-- Department Selection -->
               <div class="field-group">
-                <label for="department">Department: <span class="req"></span></label>
+                <label for="department">Department:</label>
                 <select id="department" name="department" required>
                   <option value="">-- Select Department --</option>
                   <option value="IT">IT</option>
@@ -105,8 +105,8 @@
             </div>
             <!-- Employee email address -->
             <div class="field-row">
-              <div class="field-group full-width">
-                <label for="reporter-email">Email Address: <span class="req"></span></label>
+              <div class="field-group">
+                <label for="reporter-email">Email Address:</label>
                 <input
                   type="email"
                   id="reporter-email"
@@ -118,6 +118,88 @@
               </div>
             </div>
           </fieldset>
-    
+
+<!-- ── SECTION 2: Incident Details ── -->
+          <fieldset class="form-section">
+            <legend>
+              <span class="section-number">02</span> Incident Details
+            </legend>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="incident-type">Incident Type <span class="req">*</span></label>
+                <select id="incident-type" name="incident-type" required>
+                  <option value="">-- Select Type --</option>
+                  <option value="Phishing">Phishing</option>
+                  <option value="Malware">Malware</option>
+                  <option value="Unauthorized Access">Unauthorized Access</option>
+                  <option value="Data Breach">Data Breach</option>
+                  <option value="Ransomware">Ransomware</option>
+                  <option value="DDoS">DDoS Attack</option>
+                  <option value="Insider Threat">Insider Threat</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="error-msg" id="error-incident-type"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="incident-datetime">Date &amp; Time <span class="req">*</span></label>
+                <input
+                  type="datetime-local"
+                  id="incident-datetime"
+                  name="incident-datetime"
+                  required
+                />
+                <span class="error-msg" id="error-incident-datetime"></span>
+              </div>
+            </div>
+
+            <!-- Severity Radio Group -->
+            <div class="field-group">
+              <label class="group-label">Severity Level <span class="req">*</span></label>
+              <div class="severity-group" id="severity-group">
+                <label class="severity-option severity-low">
+                  <input type="radio" name="severity" value="Low" required />
+                  <span class="severity-badge">LOW</span>
+                </label>
+                <label class="severity-option severity-medium">
+                  <input type="radio" name="severity" value="Medium" />
+                  <span class="severity-badge">MEDIUM</span>
+                </label>
+                <label class="severity-option severity-high">
+                  <input type="radio" name="severity" value="High" />
+                  <span class="severity-badge">HIGH</span>
+                </label>
+                <label class="severity-option severity-critical">
+                  <input type="radio" name="severity" value="Critical" />
+                  <span class="severity-badge">CRITICAL</span>
+                </label>
+              </div>
+              <span class="error-msg" id="error-severity"></span>
+            </div>
+
+            <!-- field to describe the type of incident, I will setup to have at least 20 characters -->
+            <div class="field-group">
+              <label for="description">
+                Incident Description <span class="req">*</span>
+                <span class="char-counter" id="char-counter">0 / 20 min</span>
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                rows="5"
+                placeholder="Describe what happened, when you noticed it, and any affected systems or data..."
+                required
+                minlength="20"
+              ></textarea>
+              <span class="error-msg" id="error-description"></span>
+            </div>
+          </fieldset>
+
+          <!-- adding buttons to submit or clear the request -->
+          <div class="form-actions">
+            <button type="reset" class="btn-secondary" id="reset-btn">Clear Form</button>
+            <button type="submit" class="btn-primary" id="submit-btn">Submit Report</button>
+          </div>
 </body>
 </html>
