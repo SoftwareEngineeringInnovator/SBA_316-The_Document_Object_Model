@@ -1,0 +1,9 @@
+/* Body page setup */
+body {
+    background-color: #f0f4f8;
+    font-family: Ariel, sans-serif;
+    font-size: 16px;
+    color: #222222;
+    margin: 0;
+    padding: 0;
+}
