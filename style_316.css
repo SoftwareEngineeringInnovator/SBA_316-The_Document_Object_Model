@@ -1,9 +1,83 @@
 /* Body page setup */
 body {
-    background-color: #f0f4f8;
+    background-color: lightskyblue;
     font-family: Ariel, sans-serif;
     font-size: 16px;
-    color: #222222;
+    color: black;
     margin: 0;
     padding: 0;
+}
+
+/* style for the header */
+.site {
+  background-color: black;
+  padding: 16px 24px;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* color: white; */
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.logo strong {
+  color: violet;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.header-meta {
+  font-size: 13px;
+  color: #aaaaaa;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.clock {
+  color: #00bcd4;
+  font-weight: bold;
+}
+
+/* This provide a live animation to the page's clock */
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: greenyellow;
+  border-radius: 50%;
+}
+
+.system-label strong {
+  color: lightslategray;
+  font-size: 12px;
+}
+
+/* Page layout */
+.main-layout {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* ── PANELS Form */
+.form-panel {
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  flex: 1;
 }
