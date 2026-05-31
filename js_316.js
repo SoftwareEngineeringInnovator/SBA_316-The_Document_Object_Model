@@ -65,14 +65,6 @@ const incidentCardTemplate = document.getElementById("incident-card-template");
 // create an array to store incident reports
 const incidentReports = [];
 
-
-// Create at least one element using createElement. 5% 
-// Use appendChild and/or prepend to add new elements to the DOM. 5% 
-// Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. 2% 
-// Modify the HTML or text content of at least one element in response to user interaction using innerHTML, innerText, or textContent. 10% 
-// Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties. 5% 
-// Modify at least one attribute of an element in response to user interaction. 3%
-
 // Register at least two different event listeners and create the associated event handler functions. 10%
 
 // event listener for the Incident Description field
@@ -242,16 +234,22 @@ function submitIncidentReport(event) {
     // This will display the object in the console
     console.log(incidentReport);
 
-    // Store the array report, display the repots  and clear the form after press the Submit Report button
+    // Store the array report, display the repots  and clear the form after the user press the Submit Report button
     incidentReports.push(incidentReport);
 
+    // Modify the HTML or text content of at least one element in response to user interaction using innerHTML, innerText, or textContent. 10%
+    // Update the total number of reports displayed
+    incidentCount.textContent = `${incidentReports.length} reports`;
+
     console.log(incidentReports);
+
+    createIncidentCard(incidentReport);
 
     incidentForm.reset();
 
     // Reset character counter display
-    // characterCounter.textContent = "0 / 20 min";
-    // characterCounter.classList.remove("met");
+    characterCounter.textContent = "0 / 20 min";
+    characterCounter.classList.remove("met");
 }
 
 // Function that creates a visual incident card, this helps to clone the template card
@@ -288,6 +286,12 @@ function createIncidentCard(incidentReport) {
 }
 
 
+// Create at least one element using createElement. 5%
+// Use appendChild and/or prepend to add new elements to the DOM. 5%
+// Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. 2%
+
+// Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties. 5%
+// Modify at least one attribute of an element in response to user interaction. 3%
 
 // Use at least two Browser Object Model (BOM) properties or methods. 3% Include at least one form and/or input with HTML attribute validation. 5%
 
