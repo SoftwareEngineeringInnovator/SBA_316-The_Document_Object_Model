@@ -220,9 +220,17 @@ function submitIncidentReport(event) {
         console.log("Form contains validation errors.");
         return;
     }
-
     // Success message for testing
-    console.log("Form submitted successfully.");
+    // console.log("Form submitted successfully.");
+
+    // Create the object that will stores the incident information
+    const incidentReport = {
+    employeeName: employeeNameField.value.trim(),
+    employeeId: employeeIdField.value.trim(),
+    description: descriptionField.value.trim()
+};
+// This will display the object in the console
+console.log(incidentReport);
 }
 
 
