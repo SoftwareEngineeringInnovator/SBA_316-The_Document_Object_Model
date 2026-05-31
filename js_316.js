@@ -55,7 +55,13 @@ const employeeIdError = document.getElementById("error-employee-id");
 const descriptionError = document.getElementById("error-description");
 
 // Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5% 
-// Iterate over a collection of elements to accomplish some task. 10% 
+
+// Iterate over a collection of elements to accomplish some task. 10%
+
+// create an array to store incident reports
+const incidentReports = [];
+
+
 // Create at least one element using createElement. 5% 
 // Use appendChild and/or prepend to add new elements to the DOM. 5% 
 // Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. 2% 
@@ -84,7 +90,9 @@ incidentForm.addEventListener(
     submitIncidentReport
 );
 
+// Include at least one form and/or input with DOM event-based validation. (This can be the same form or input as the one above, but should include event-based validation in addition to the HTML attribute validation.) 5%
 // Function that validates the characters in the incident field
+
 function incidentCharacterCounter() {
 
     // store the information from the Incident Description field
@@ -150,8 +158,7 @@ function validateEmployeeId() {
         employeeIdError.textContent = "Employee ID is required.";
     }
 
-    else if (!employeeIdPattern.test(employeeId))
-         {
+    else if (!employeeIdPattern.test(employeeId)) {
         // Must start with EMP- following by 4 digits
         employeeIdError.textContent = "Use format EMP-1234.";
     }
@@ -211,7 +218,7 @@ function submitIncidentReport(event) {
     // console.log("Name Error:", employeeNameError.textContent);
     // console.log("ID Error:", employeeIdError.textContent);
     // console.log("Description Error:", descriptionError.textContent);
-    
+
     // const formHasErrors = employeeNameError.textContent !== "" || employeeIdError.textContent !== "" || descriptionError.textContent !== "";
 
     // Stop submission if errors exist
@@ -225,18 +232,23 @@ function submitIncidentReport(event) {
 
     // Create the object that will stores the incident information
     const incidentReport = {
-    employeeName: employeeNameField.value.trim(),
-    employeeId: employeeIdField.value.trim(),
-    description: descriptionField.value.trim()
-};
-// This will display the object in the console
-console.log(incidentReport);
+        employeeName: employeeNameField.value.trim(),
+        employeeId: employeeIdField.value.trim(),
+        description: descriptionField.value.trim()
+    };
+    // This will display the object in the console
+    console.log(incidentReport);
+
+    // Store the array report and display the repots
+    incidentReports.push(incidentReport);
+    
+    console.log(incidentReports);
 }
 
 
 
 // Use at least two Browser Object Model (BOM) properties or methods. 3% Include at least one form and/or input with HTML attribute validation. 5%
-// Include at least one form and/or input with DOM event-based validation. (This can be the same form or input as the one above, but should include event-based validation in addition to the HTML attribute validation.) 5%
+
 // Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). 10%
 // Commit frequently to the git repository. 5%
 // Include a README file that contains a description of your application. 2%
