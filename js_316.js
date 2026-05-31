@@ -54,6 +54,10 @@ const employeeIdError = document.getElementById("error-employee-id");
 // Error for the description of Incident Description field if there are less than 20 characters or empty
 const descriptionError = document.getElementById("error-description");
 
+// Create incident cards
+
+const incidentCardTemplate = document.getElementById("incident-card-template");
+
 // Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5% 
 
 // Iterate over a collection of elements to accomplish some task. 10%
@@ -204,12 +208,11 @@ function submitIncidentReport(event) {
     // This is to avoid a refresh after the form is submitted
     event.preventDefault();
 
-    // Run validation functions
+    // Run validation functions for EmployeeName, EmployeeId, and Description fields
     validateEmployeeName();
 
     validateEmployeeId();
 
-    // Run description validation
     validateDescription();
 
     // Check if any error messages exist
@@ -241,14 +244,47 @@ function submitIncidentReport(event) {
 
     // Store the array report, display the repots  and clear the form after press the Submit Report button
     incidentReports.push(incidentReport);
-    
+
     console.log(incidentReports);
-    
+
     incidentForm.reset();
 
     // Reset character counter display
     // characterCounter.textContent = "0 / 20 min";
     // characterCounter.classList.remove("met");
+}
+
+// Function that creates a visual incident card, this helps to clone the template card
+
+function createIncidentCard(incidentReport) {
+
+    // Clone the template content
+
+    const cardClone = incidentCardTemplate.content.cloneNode(true);
+
+    // Find elements inside the cloned card
+
+    const cardSeverity = cardClone.querySelector(".card-severity-badge");
+
+    const cardType = cardClone.querySelector(".card-type");
+
+    const cardDescription = cardClone.querySelector(".card-description");
+
+    const cardReporter = cardClone.querySelector(".card-reporter");
+
+    // Fill card with data
+
+    cardSeverity.textContent = "NEW";
+
+    cardType.textContent = "Incident Report";
+
+    cardDescription.textContent = incidentReport.description;
+
+    cardReporter.textContent = (`${incidentReport.employeeName} (${incidentReport.employeeId})`);
+
+    // Display newest report first
+    logFeed.prepend(cardClone);
+
 }
 
 
