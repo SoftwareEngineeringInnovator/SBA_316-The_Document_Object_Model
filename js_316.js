@@ -239,10 +239,16 @@ function submitIncidentReport(event) {
     // This will display the object in the console
     console.log(incidentReport);
 
-    // Store the array report and display the repots
+    // Store the array report, display the repots  and clear the form after press the Submit Report button
     incidentReports.push(incidentReport);
     
     console.log(incidentReports);
+    
+    incidentForm.reset();
+
+    // Reset character counter display
+    // characterCounter.textContent = "0 / 20 min";
+    // characterCounter.classList.remove("met");
 }
 
 
