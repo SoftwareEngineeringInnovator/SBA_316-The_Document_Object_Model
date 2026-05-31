@@ -1,6 +1,11 @@
 // Test connection from project to web page
 // console.log("script connected");
 
+// function submitIncidentReport(event) {
+//     console.log("SUBMIT FUNCTION STARTED");
+//     event.preventDefault();
+// }
+
 // Cache at least one element using selectElementById. 5%. - IDs ("incident-form", "description", "char-counter", "incident-count",  "log-feed" )
 
 const incidentForm = document.getElementById("incident-form");
@@ -71,6 +76,12 @@ employeeNameField.addEventListener(
 // event listener for the employee ID field
 employeeIdField.addEventListener(
     "input", validateEmployeeId
+);
+
+// event listener for the form submission
+incidentForm.addEventListener(
+    "submit",
+    submitIncidentReport
 );
 
 // Function that validates the characters in the incident field
@@ -151,6 +162,67 @@ function validateEmployeeId() {
 
     // Tested everyone of the above varialbles
     // console.log(employeeId);
+}
+
+// Function that validates the Incident Description fiel to verify if it is empty or has less than 20 characters
+
+function validateDescription() {
+
+    // This method will remove the whitespaces
+    const descriptionText = descriptionField.value.trim();
+
+    // Check if empty
+    if (descriptionText === "") {
+        descriptionError.textContent = "Incident description is required.";
+    }
+
+    // Check minimum length
+    else if (descriptionText.length < 20) {
+        descriptionError.textContent = "Description must contain at least 20 characters.";
+    }
+
+    // Passed validation
+    else {
+        descriptionError.textContent = "";
+    }
+
+    // Tested everyone of the above varialbles
+    // console.log(descriptionText);
+
+}
+
+// Function that validates the form being submitted
+function submitIncidentReport(event) {
+
+    // This is to avoid a refresh after the form is submitted
+    event.preventDefault();
+
+    // Run validation functions
+    validateEmployeeName();
+
+    validateEmployeeId();
+
+    // Run description validation
+    validateDescription();
+
+    // Check if any error messages exist
+    const formHasErrors = employeeNameError.textContent !== "" || employeeIdError.textContent !== "" || descriptionError.textContent !== "";
+
+    // console.log("Name Error:", employeeNameError.textContent);
+    // console.log("ID Error:", employeeIdError.textContent);
+    // console.log("Description Error:", descriptionError.textContent);
+    
+    // const formHasErrors = employeeNameError.textContent !== "" || employeeIdError.textContent !== "" || descriptionError.textContent !== "";
+
+    // Stop submission if errors exist
+    if (formHasErrors) {
+
+        console.log("Form contains validation errors.");
+        return;
+    }
+
+    // Success message for testing
+    console.log("Form submitted successfully.");
 }
 
 
