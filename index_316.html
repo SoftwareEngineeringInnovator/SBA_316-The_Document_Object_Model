@@ -32,8 +32,7 @@
         </div>
 
         <form id="incident-form" novalidate>
-
-                  <!-- ── SECTION 1: Reporter Info ── -->
+          <!-- ── SECTION 1: Reporter Info ── -->
           <fieldset class="form-section">
             <legend>
               <span class="section-number">01</span> Reporter Information
@@ -52,7 +51,7 @@
                 />
                 <span class="error-msg" id="error-employee-name"></span>
               </div>
-            <!-- Employee tittle -->
+            <!-- Employee title -->
               <div class="field-group">
                 <label for="reporter-title">Job Title:</label>
                 <input
@@ -75,7 +74,7 @@
                   name="employee-id"
                   placeholder="Employee ID"
                   required
-                  pattern="EMP-\d{4}"
+                  pattern="EMP-[0-9]{4}"
                   title="Format: EMP-followed by 4 digits (e.g. EMP-1234)"
                 />
             <!-- ID Format -->                
@@ -195,7 +194,7 @@
             <button type="reset" class="btn-secondary" id="reset-btn">Clear Form</button>
           </div>
 
-     <!-- Add a general warning to verify fields, accmplish this by using JS -->
+     <!-- Add a general warning to verify fields, accomplish this by using JS -->
 
         </form>
       </section>
@@ -220,7 +219,7 @@
         <!-- Incident cards go here dynamically -->
         <div class="log-feed" id="log-feed">
           <div class="empty-state" id="empty-state">
-            <span class="empty-icon">📋</span>
+            <span class="empty-icon"></span>
             <p>No incidents reported yet.<br />Submit a report to see it here.</p>
           </div>
         </div>

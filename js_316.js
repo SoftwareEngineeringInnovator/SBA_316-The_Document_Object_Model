@@ -1,3 +1,15 @@
+// REFERENCE SITES:
+// YouTube
+// https://www.youtube.com/watch?v=MKD0Vsu0Ikw
+// https://www.youtube.com/watch?v=CYlNJpltjMM
+// https://www.youtube.com/watch?v=y17RuWkWdn8
+// https://www.youtube.com/watch?v=G0jO8kUrg-I
+// https://www.youtube.com/watch?v=zjYgz50E0mA
+// https://www.youtube.com/watch?v=Ap3FzanT1nQ
+//IBM
+// https://skills.yourlearning.ibm.com/activity/PLAN-F926DE21540D
+// https://skills.yourlearning.ibm.com/activity/ALM-COURSE_3825123
+
 // Test connection from project to web page
 // console.log("script connected");
 
@@ -61,7 +73,8 @@ const incidentCardTemplate = document.getElementById("incident-card-template");
 // Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5%
 const emptyState = document.getElementById("empty-state");
 
-const logFeed = document.getElementById("log-feed");
+// this actions will clear the log after the user click the option
+const clearLogButton = document.getElementById("clear-log-btn");
 
 let successMessageElement = null;
 // Iterate over a collection of elements to accomplish some task. 10%
@@ -69,26 +82,24 @@ let successMessageElement = null;
 // create an array to store incident reports
 const incidentReports = [];
 
+incidentCount.textContent = "0 reports";
+
 // Register at least two different event listeners and create the associated event handler functions. 10%
 
 // event listener for the Incident Description field
 descriptionField.addEventListener("input", incidentCharacterCounter);
 
 // event listener for the employee name
-employeeNameField.addEventListener(
-    "input", validateEmployeeName
-);
+employeeNameField.addEventListener("input", validateEmployeeName);
 
 // event listener for the employee ID field
-employeeIdField.addEventListener(
-    "input", validateEmployeeId
-);
+employeeIdField.addEventListener("input", validateEmployeeId);
 
 // event listener for the form submission
-incidentForm.addEventListener(
-    "submit",
-    submitIncidentReport
-);
+incidentForm.addEventListener("submit", submitIncidentReport);
+
+// Event listener for Clear Log button - this actions will clear the log after the user click the option
+clearLogButton.addEventListener("click", clearIncidentLog);
 
 // Include at least one form and/or input with DOM event-based validation. (This can be the same form or input as the one above, but should include event-based validation in addition to the HTML attribute validation.) 5%
 // Function that validates the characters in the incident field
@@ -148,7 +159,7 @@ function validateEmployeeName() {
 
 function validateEmployeeId() {
 
-    // This method will remove the whitespaces
+    // This method will remove the whitespaces in the  employee id field
     const employeeId = employeeIdField.value.trim();
 
     // Must start with EMP- following by 4 digits
@@ -175,7 +186,7 @@ function validateEmployeeId() {
 
 function validateDescription() {
 
-    // This method will remove the whitespaces
+    // This method will remove the whitespaces in the description field
     const descriptionText = descriptionField.value.trim();
 
     // Check if empty
@@ -229,7 +240,7 @@ function submitIncidentReport(event) {
     // Success message for testing
     // console.log("Form submitted successfully.");
 
-    // Create the object that will stores the incident information
+    // Store the report Data
     const incidentReport = {
         employeeName: employeeNameField.value.trim(),
         employeeId: employeeIdField.value.trim(),
@@ -272,6 +283,11 @@ function submitIncidentReport(event) {
     // Reset character counter display
     characterCounter.textContent = "0 / 20 min";
     characterCounter.classList.remove("met");
+
+    // Modify at least one attribute of an element in response to user interaction. 3%
+    descriptionField.setAttribute("placeholder", "Incident submitted successfully. Enter another incident report.");
+
+    console.log(descriptionField.getAttribute("placeholder"));
 }
 
 // Function that creates a visual incident card, this helps to clone the template card
@@ -325,19 +341,33 @@ function createIncidentCard(incidentReport) {
 
 }
 
+// Function that clears all incident reports by clicking on the 'Clear Log' button
+function clearIncidentLog() {
+
+    // console.log("Clear Log clicked");
+    const userConfirmed = window.confirm("Are you sure you want to clear all incident reports?");
+
+    if (!userConfirmed) {
+        return;
+    }
+
+    // Find all the incident cards
+    const incidentCards = document.querySelectorAll(".incident-card");
+
+    // Create a loop through every incident card
+    for (const card of incidentCards) {
+        card.remove();
+    }
+
+    // console.log(card);
+    incidentReports.length = 0;
+    incidentCount.textContent = "0 reports";
+
+    // Display the cards found
+    console.log(incidentCards);
+    // console.log("User confirmed clear log");
+
+}
 
 
-// Use appendChild and/or prepend to add new elements to the DOM. 5%
-// Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. 2%
-
-// Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties. 5%
-// Modify at least one attribute of an element in response to user interaction. 3%
-
-
-// Include at least one form and/or input with HTML attribute validation. 5%
-
-// Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). 10%
-// Commit frequently to the git repository. 5%
-// Include a README file that contains a description of your application. 2%
-// Level of effort displayed in creativity, presentation, and user experience. 5%
 
