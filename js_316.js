@@ -58,8 +58,12 @@ const descriptionError = document.getElementById("error-description");
 
 const incidentCardTemplate = document.getElementById("incident-card-template");
 
-// Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5% 
+// Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5%
+const emptyState = document.getElementById("empty-state");
 
+const logFeed = document.getElementById("log-feed");
+
+let successMessageElement = null;
 // Iterate over a collection of elements to accomplish some task. 10%
 
 // create an array to store incident reports
@@ -245,6 +249,24 @@ function submitIncidentReport(event) {
 
     createIncidentCard(incidentReport);
 
+    // this will clear the success message if it exists
+    if (successMessageElement) {
+        successMessageElement.remove();
+    }
+
+    // Create at least one element using createElement. 5%
+    // this will add the success message as paragraph
+    successMessageElement = document.createElement("p");
+
+    // this will add the succesful submission of the incident report as a text
+    successMessageElement.textContent = ("Incident Report Submitted Successfully");
+
+    // Add a success class
+    successMessageElement.classList.add("success-message");
+
+    // Add message to panel as a successful submission
+    formPanel.appendChild(successMessageElement);
+
     incidentForm.reset();
 
     // Reset character counter display
@@ -270,6 +292,9 @@ function createIncidentCard(incidentReport) {
 
     const cardReporter = cardClone.querySelector(".card-reporter");
 
+    // Use at least two Browser Object Model (BOM) properties or methods. 3%
+    const cardTimestamp = cardClone.querySelector(".card-timestamp");
+
     // Fill card with data
 
     cardSeverity.textContent = "NEW";
@@ -280,20 +305,36 @@ function createIncidentCard(incidentReport) {
 
     cardReporter.textContent = (`${incidentReport.employeeName} (${incidentReport.employeeId})`);
 
+    // Use at least two Browser Object Model (BOM) properties or methods. 3%
+
+    // The below variable will create and add current date and time for the card
+    const currentTimestamp = new Date().toLocaleString();
+    cardTimestamp.textContent = currentTimestamp;
+
+    // This will remove the message after the first reports is created
+    if (emptyState) {
+
+        // Use the parent-child-sibling relationship to navigate between elements at least once (firstChild, lastChild, parentNode, nextElementSibling, etc.). 5%
+        const parentContainer = emptyState.parentNode;
+
+        parentContainer.removeChild(emptyState);
+    }
+
     // Display newest report first
     logFeed.prepend(cardClone);
 
 }
 
 
-// Create at least one element using createElement. 5%
+
 // Use appendChild and/or prepend to add new elements to the DOM. 5%
 // Use the DocumentFragment interface or HTML templating with the cloneNode method to create templated content. 2%
 
 // Modify the style and/or CSS classes of an element in response to user interactions using the style or classList properties. 5%
 // Modify at least one attribute of an element in response to user interaction. 3%
 
-// Use at least two Browser Object Model (BOM) properties or methods. 3% Include at least one form and/or input with HTML attribute validation. 5%
+
+// Include at least one form and/or input with HTML attribute validation. 5%
 
 // Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit). 10%
 // Commit frequently to the git repository. 5%
